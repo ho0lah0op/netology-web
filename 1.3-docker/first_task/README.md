@@ -14,7 +14,7 @@ docker build -t my-nginx .
 docker run -d -p 8080:80 my-nginx
 ```
 ## Шаг 3
--> Откройте веб-браузер и перейти по адресу: http://localhost:8080
+-> Откройте веб-браузер и перейдите по адресу: http://localhost:8080
 
 ## Appendix
 Образ хранится в [Dockerfile](Dockerfile)
