@@ -7,3 +7,6 @@
 2.3-aiohttp/
 2.4-celery/
 .idea/
+venv/
+__pycache__/
+**/db.sqlite3
