@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+
+  backend:
+    build: .
+    image: sp_django:latest
+    container_name: stocks_products
+    depends_on:
+      - db
+    volumes:
+      - ./stocks_products/:/stocks_products/
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=netology_stocks_products
+      - DB_USER=postgres
+      - DB_PASSWORD=hunas
+  db:
+    image: postgres:alpine
+    container_name: db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=netology_stocks_products
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hunas
+    ports:
+      - "5432:5432"
+  nginx:
+    build: ./nginx
+    image: sp_nginx
+    container_name: sp_nginx
+    volumes:
+      - ./stocks_products/static/:/stocks_products/static
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - db
