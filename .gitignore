@@ -1,7 +1,6 @@
 1.1-console/
 1.2-deploy/
 1.5-ci-cd/
-2.3-aiohttp/
 2.4-celery/
 .idea/
 venv/
